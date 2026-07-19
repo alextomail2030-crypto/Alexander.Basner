@@ -44,3 +44,16 @@ menuLinks.forEach(link => {
         overlay.classList.remove("active");
     });
 });
+
+// Aufklappbare Unterkategorien bei den Skills
+const skillToggles = document.querySelectorAll(".skill-toggle");
+
+skillToggles.forEach(toggle => {
+    toggle.addEventListener("click", () => {
+        const details = document.getElementById(toggle.getAttribute("aria-controls"));
+        const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+
+        toggle.setAttribute("aria-expanded", String(!isExpanded));
+        details.hidden = isExpanded;
+    });
+});
